@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+    
+    <!-- 外部配置文件 -->
+     <include file="student-struts.xml" />
+     <include file="classmessage-struts.xml" />
+     <include file="achievement-struts.xml" />
+     <include file="gradeteacher-struts.xml" /> 
+     <include file="teacher-struts.xml" />
+    
+    <package name="AdminmessageAction"  extends="struts-default" >
+    
+        <!-- 学生页面无操作跳转到发送信息action -->
+    	<action name="SendMessageStudent" class="org.heyimtaeyang.action.AdminmessageAction" method="SendMessageStudent">
+    		<result name="success">/StudentPage/Student_Message_SendMessage.jsp</result>
+    	</action>
+    	
+    	<!-- 学生页面添加新的信息action -->
+    	<action name="addMessageStudent" class="org.heyimtaeyang.action.AdminmessageAction" method="addMessageStudent">
+    		<result name="success" type="chain">StudentAdminmessagePage</result>
+    	</action>
+    	
+    	<!-- 学生页面分页显示信息action -->
+    	<action name="StudentAdminmessagePage" class="org.heyimtaeyang.action.AdminmessageAction" method="StudentAdminmessagePage">
+    		<result name="success">/StudentPage/Student_Message_ListMessage.jsp</result>
+    	</action>
+    	
+    	<!-- 学生页面分页显示信息已处理action -->
+    	<action name="StudentAdminmessagePages" class="org.heyimtaeyang.action.AdminmessageAction" method="StudentAdminmessagePages">
+    		<result name="success">/StudentPage/Student_Message_ListMessageState.jsp</result>
+    	</action>
+    	
+    	<!-- 管理员页面分页显示信息未处理信息action -->
+    	<action name="AdminAdminmessagePage" class="org.heyimtaeyang.action.AdminmessageAction" method="AdminAdminmessagePage">
+    		<result name="success">/AdminPage/addClassmessage_Message_ListAdminMessage.jsp</result>
+    	</action>
+    	
+    	<!-- 管理员页面显示信息和处理信息action -->
+    	<action name="ReplyMessage" class="org.heyimtaeyang.action.AdminmessageAction" method="ReplyMessage">
+    		<result name="success">/AdminPage/admin_Messagea_Reply_ShowAdminMessage.jsp</result>
+
+    	</action>
+    	
+    	<!-- 管理员页面分页显示信息已处理信息action -->
+    	<action name="AdminAdminmessagePages" class="org.heyimtaeyang.action.AdminmessageAction" method="AdminAdminmessagePages">
+    		<result name="success">/AdminPage/addClassmessage_Message_ListAdminMessageState.jsp</result>
+    	</action>
+    	
+    	<!-- 学生页面显示咨询信息Student -->
+        <action name="showStudentAdminMessage" class="org.heyimtaeyang.action.AdminmessageAction" method="showStudentAdminMessage">  
+            <result name="success">/StudentPage/Student_Message_ShowAdminMessage_student.jsp</result>  
+            <result name="error">/StudentPage/404.html</result> 
+        </action> 
+    			
+    </package>   
+</struts>    

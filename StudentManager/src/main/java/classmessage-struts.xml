@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+ 
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+    <!-- 外部配置文件 -->
+     <include file="admin-struts.xml" />
+     <include file="student-struts.xml" />
+     <include file="achievement-struts.xml" />
+     <include file="gradeteacher-struts.xml" /> 
+     <include file="teacher-struts.xml" />
+    
+    
+    <package name="ClassmessageAction"  extends="struts-default" >
+    
+    	
+    	
+    	<!-- 管理员页面跳转到班级信息action -->
+    	<action name="clasee_MessageAdmin" class="org.heyimtaeyang.action.ClassmessageAction" method="clasee_MessageAdmin">
+    		<result name="success">/AdminPage/admin_Message_ShowCLass.jsp</result>
+    	</action> 
+    	
+    	<!-- 年级辅导员页面跳转到班级信息action -->
+    	<action name="clasee_MessageGradeTeacher" class="org.heyimtaeyang.action.ClassmessageAction" method="clasee_MessageGradeTeacher">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_ShowCLass.jsp</result>
+    	</action> 
+    	
+    	<!-- 班级辅导员页面跳转到班级信息action -->
+    	<action name="clasee_MessageTeacher" class="org.heyimtaeyang.action.ClassmessageAction" method="clasee_MessageTeacher">
+    		<result name="success">/TeacherPage/Teacher_Message_ShowCLass.jsp</result>
+    	</action> 
+    	
+    	<!-- 学生页面跳转到班级信息action -->
+    	<action name="clasee_MessageStudent" class="org.heyimtaeyang.action.ClassmessageAction" method="clasee_MessageStudent">
+    		<result name="success">/StudentPage/Student_Message_ShowCLass.jsp</result>
+    	</action>
+    	
+    	<!-- 班级辅导员所在班级TeacherPage action -->
+    	<action name="TeacherClassMessage" class="org.heyimtaeyang.action.ClassmessageAction" method="TeacherClassMessage">
+    		<result name="success">/TeacherPage/Teacher_Message_ShowTeacherCLass.jsp</result>
+    		<result name="error">/404.html</result>
+    	</action> 
+    	
+    	<!-- 分页显示所有班级admin action -->
+    	<action name="ClassmessagePageAdmin" class="org.heyimtaeyang.action.ClassmessageAction" method="ClassmessagePageAdmin">
+    		<result name="success">/AdminPage/addClassmessage_Message_ListClassmessage.jsp</result>
+    	</action>
+    	
+    	<!-- 跳转到添加班级页面admin action -->
+    	<action name="addClassmessage" class="org.heyimtaeyang.action.ClassmessageAction" method="addClassmessage">
+    		<result name="success">/AdminPage/addClassmessage_Message_addClassmessage.jsp</result>
+    	</action>
+    	
+    	<!-- 添加班级信息admin action -->
+    	<action name="addClassmessageAdmin" class="org.heyimtaeyang.action.ClassmessageAction" method="addClassmessageAdmin">
+    		<result name="success" type="chain">ClassmessagePageAdmin</result>
+    	</action>
+    			
+    	<!-- 删除班级信息admin action -->
+    	<action name="deleteClassmessage" class="org.heyimtaeyang.action.ClassmessageAction" method="deleteClassmessage">
+    		<result name="success" type="chain">ClassmessagePageAdmin</result>
+    	</action>
+    	
+    	<!-- 显示班级详细信息admin action -->
+    	<action name="ShowClassmessageAdmin" class="org.heyimtaeyang.action.ClassmessageAction" method="ShowClassmessageAdmin">
+    		<result name="success">/AdminPage/addClassmessage_Message_ShowClassmessage.jsp</result>
+    	</action>
+    	
+    	<!-- 更新班级详细信息admin action -->
+    	<action name="UpdateClassmessageAdmins" class="org.heyimtaeyang.action.ClassmessageAction" method="UpdateClassmessageAdmins">
+    		<result name="success" type="chain">ClassmessagePageAdmin</result>
+    	</action>
+    			
+    </package>  
+</struts>    

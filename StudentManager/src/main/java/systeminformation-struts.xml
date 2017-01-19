@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+    
+    
+    
+    <package name="SysteminformationAction"  extends="struts-default" >
+    
+        <!-- 添加系统公告action -->
+    	<action name="Add_Systeminformation" class="org.heyimtaeyang.action.SysteminformationAction" method="Add_Systeminformation">
+    		<result name="success" type="chain">showPageSysteminformationAdmin</result>	
+    		<result name="error">/404.jsp</result>	
+    	</action>
+    	
+    	 <!-- 分页显示系统公告Admin action -->
+    	<action name="showPageSysteminformationAdmin" class="org.heyimtaeyang.action.SysteminformationAction" method="showPageSysteminformationAdmin">
+    		<result name="success">/AdminPage/admin_Message_ListSystemMessage.jsp</result>	
+    	</action>
+    	
+    	<!-- 分页显示系统公告Grader action -->
+    	<action name="showPageSysteminformationGradeTeacher" class="org.heyimtaeyang.action.SysteminformationAction" method="showPageSysteminformationGradeTeacher">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_ListAdminMessage.jsp</result>	
+    	</action>
+    	
+    	<!-- 分页显示系统公告Teacher action -->
+    	<action name="showPageSysteminformationTeacher" class="org.heyimtaeyang.action.SysteminformationAction" method="showPageSysteminformationTeacher">
+    		<result name="success">/TeacherPage/Teacher_Message_ListSystemMessage.jsp</result>	
+    	</action>
+    	
+    	 <!-- 分页显示系统公告student action -->
+    	<action name="showPageSysteminformationStudent" class="org.heyimtaeyang.action.SysteminformationAction" method="showPageSysteminformationStudent">
+    		<result name="success">/StudentPage/Student_Message_ListSystemMessage.jsp</result>	
+    	</action>
+    	
+    	 <!-- 按id显示系统公告Admin action -->
+    	<action name="showSysteminformationByIdAdmin" class="org.heyimtaeyang.action.SysteminformationAction" method="showSysteminformationByIdAdmin">
+    		<result name="success">AdminPage/admin_Messagea_ShowSystemMessage.jsp</result>	
+    		<result name="error">/404.jsp</result>	
+    	</action>
+    	
+    	<!-- 按id显示系统公告GraderTeacher action -->
+    	<action name="showSysteminformationByIdGradeTeacher" class="org.heyimtaeyang.action.SysteminformationAction" method="showSysteminformationByIdGradeTeacher">
+    		<result name="success">/GradeteacherPage/GradeTeacher_ShowSystemMessage.jsp</result>	
+    		<result name="error">/404.jsp</result>	
+    	</action>
+    	
+    	 <!-- 按id显示系统公告student action -->
+    	<action name="showSysteminformationByIdStudent" class="org.heyimtaeyang.action.SysteminformationAction" method="showSysteminformationByIdStudent">
+    		<result name="success">/StudentPage/Student_Message_ShowSystemMessage.jsp</result>	
+    		<result name="error">/404.jsp</result>	
+    	</action>
+    	
+    	<!-- 按id显示系统公告Teacher action -->
+    	<action name="showSysteminformationByIdTeacher" class="org.heyimtaeyang.action.SysteminformationAction" method="showSysteminformationByIdTeacher">
+    		<result name="success">/TeacherPage/Teacher_Messagea_ShowSystemMessage.jsp</result>	
+    		<result name="error">/404.jsp</result>	
+    	</action>
+    	
+    	 <!-- 无操作跳转发笔系统公告Admin action -->
+    	<action name="SendMessage_Admin" class="org.heyimtaeyang.action.SysteminformationAction" method="SendMessage_Admin">
+    		<result name="success">/AdminPage/admin_Messagea_add_SystemMessage.jsp</result>		
+    	</action>
+    	
+    	<!-- 删除系统公告action -->
+    	<action name="deleteBySysteminformation" class="org.heyimtaeyang.action.SysteminformationAction" method="deleteBySysteminformation">
+    		<result name="success" type="chain">showPageSysteminformationAdmin</result>	
+    		<result name="error">/404.jsp</result>	
+    	</action>
+    			
+    </package>   
+</struts>    

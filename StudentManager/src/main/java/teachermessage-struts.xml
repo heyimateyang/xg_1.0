@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+    
+    <!-- 外部配置文件 -->
+     <include file="student-struts.xml" />
+     <include file="classmessage-struts.xml" />
+     <include file="achievement-struts.xml" />
+     <include file="gradeteacher-struts.xml" /> 
+     <include file="teacher-struts.xml" />
+     <include file="delete-struts.xml" />
+    
+    <package name="TeacherMessageAction"  extends="struts-default" >
+    
+        <!-- 学生页面跳转到发送助理辅导员信息action -->
+    	<action name="SendTeacher" class="org.heyimtaeyang.action.TeacherMessageAction" method="SendTeacher">
+    		<result name="success">/StudentPage/Student_Message_SendTeacherMessage.jsp</result>
+    	
+    	</action>
+    	
+    	 <!-- 学生页面发送助理辅导员信息action -->
+    	<action name="addTeacherMessageStudent" class="org.heyimtaeyang.action.TeacherMessageAction" method="addTeacherMessageStudent">
+    		<result name="success" type="chain">showPageTeacherMessage</result>
+    		<result name="error">/404.html</result>
+    	</action>
+    	
+    	 <!-- 学生页显示辅导员信息action -->
+    	<action name="showPageTeacherMessage" class="org.heyimtaeyang.action.TeacherMessageAction" method="showPageTeacherMessage">
+    		<result name="success">/StudentPage/Student_Message_ListTeacherMessage.jsp</result>
+    		<result name="eooro">/404.html</result>
+    	</action>
+    	
+    	 <!-- 学生页显示一条辅导员信息action -->
+    	<action name="findTeacherMessage" class="org.heyimtaeyang.action.TeacherMessageAction" method="findTeacherMessage">
+    		<result name="success">/StudentPage/Student_Message_ShowTeacherMessage_student.jsp</result>
+    		<result name="error">/404.html</result>
+    	</action>
+    	
+    	 <!-- 助理辅导员显示咨询信息action -->
+    	<action name="TeacherNoReply" class="org.heyimtaeyang.action.TeacherMessageAction" method="TeacherNoReply">
+    		<result name="success">/StudentPage/Student_Message_ListTeacherMessageState.jsp</result>
+    		
+    	</action>
+    	
+    	
+    	
+    	
+    	<action name="showNoReply" class="org.heyimtaeyang.action.TeacherMessageAction" method="showNoReply">
+    		<result name="success">/GradeteacherPage/GradeTeacher_ListMessage.jsp</result>
+    		
+    	</action>
+    	
+    	<action name="findTeacherMessageTeacher" class="org.heyimtaeyang.action.TeacherMessageAction" method="findTeacherMessageTeacher">
+    		<result name="success">/GradeteacherPage/GradeTeacher_Reply_ShowAdminMessage.jsp</result>
+    		<result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="showYesReply" class="org.heyimtaeyang.action.TeacherMessageAction" method="showYesReply">
+    		<result name="success">/GradeteacherPage/GradeTeacher_OKListMessage.jsp</result>
+    		
+    	</action>
+    	
+    	<action name="addTeachermessageReply" class="org.heyimtaeyang.action.TeacherMessageAction" method="addTeachermessageReply">
+    		<result name="success" type="chain">showYesReply</result>
+    		<result name="error">/404.html</result>
+    	</action>
+    	
+    	<action name="FindByIdReply" class="org.heyimtaeyang.action.TeacherMessageAction" method="FindByIdReply">
+    		<result name="success">/TeacherPage/Teacher_Messagea_OKReply_ShowTeacherMessage.jsp</result>
+    	</action>
+    	
+    	<action name="StudentReply" class="org.heyimtaeyang.action.TeacherMessageAction" method="StudentReply">
+    		<result name="success">/StudentPage/Student_Messagea_OKReply_ShowTeacherMessage.jsp</result>
+    	</action>
+    			
+    </package>   
+</struts>    

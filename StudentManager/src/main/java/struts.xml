@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+     <!-- 外部配置文件 -->
+     <include file="leavestudent-struts.xml" />
+     <include file="admin-struts.xml" />
+     <include file="student-struts.xml" />
+     <include file="classmessage-struts.xml" />
+     <include file="achievement-struts.xml" />
+     <include file="gradeteacher-struts.xml" /> 
+     <include file="teacher-struts.xml" />
+     <include file="citation-struts.xml" />
+     <include file="studentupdate-struts.xml" />
+     <include file="admin-addstudent-struts.xml" />
+     <include file="addgradeteacher-struts.xml" />
+     <include file="addteacher-struts.xml" />
+     <include file="addcollege-struts.xml" />
+     <include file="profession-struts.xml" />
+     <include file="systeminformation-struts.xml" />
+     <include file="adminmessage-struts.xml" />
+     <include file="reply-struts.xml" />
+     <include file="delete-struts.xml" />
+     <include file="teachermessage-struts.xml" />
+     
+     <!-- 设置上传大小限制20M -->
+     <constant name="struts.multipart.maxSize" value="20971520"/>
+     <!--  
+		该属性指定需要Struts 2处理的请求后缀，该属性的默认值是action，即所有匹配*.action的请求都由Struts 2处理。 
+		<constant name="struts.action.extension" value="action" />
+	 -->
+     
+<!--    
+    <include file="student-struts.xml" />
+    <include file="achievement-struts.xml" />
+    <include file="classmessage-struts.xml" />
+    <include file="gradeteacher-struts.xml" /> -->
+    
+    <package name="UsersAction"  extends="struts-default" >
+    
+    	<!-- 在这个package里可以共用的结果集,每个action中都可以使用这个result -->
+    	<global-results>
+              <result name="login_index">/login.jsp</result>
+ 	    </global-results>
+    
+        <!-- 登录action -->
+    	<action name="login" class="org.heyimtaeyang.action.UsersAction" method="login">
+    		<result name="admin">/AdminPage/admin_Message_index.jsp</result>
+    		<result name="gradeteacher">/GradeteacherPage/Gradeteacher_Message_index.jsp</result>
+    		<result name="teacher">/TeacherPage/Teacher_Message_index.jsp</result>
+    		<result name="student">/StudentPage/Student_Message_index.jsp</result>
+    		<result name="error">/404.html</result>	
+    	</action>	
+    </package> 
+    
+      
+    
+      <package name="QuitAction"  extends="struts-default" >
+    
+    	<!-- 在这个package里可以共用的结果集,每个action中都可以使用这个result -->
+    	<global-results>
+              <result name="login_index">/login.jsp</result>
+ 	    </global-results>
+    
+        <!-- Admin安全退出action -->
+    	<action name="quitSession" class="org.heyimtaeyang.action.QuitAction" method="quitSession">
+    	</action>	
+    	
+    	<!-- Student安全退出action -->
+    	<action name="StudentquitSession" class="org.heyimtaeyang.action.QuitAction" method="StudentquitSession">
+    	</action>	
+    	
+    	<!-- GradeTeacher安全退出action -->
+    	<action name="GradeTeacherquitSession" class="org.heyimtaeyang.action.QuitAction" method="GradeTeacherquitSession">
+    	</action>	
+    	
+    	<!-- Teacher安全退出action -->
+    	<action name="TeacherquitSession" class="org.heyimtaeyang.action.QuitAction" method="TeacherquitSession">
+    	</action>	
+    </package>   
+</struts>    

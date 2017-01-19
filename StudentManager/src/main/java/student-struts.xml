@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+     <!-- 外部配置文件 -->
+     <include file="admin-struts.xml" />
+     <include file="student-struts.xml" />
+     <include file="classmessage-struts.xml" />
+     <include file="achievement-struts.xml" />
+     <include file="gradeteacher-struts.xml" /> 
+     <include file="teacher-struts.xml" />
+     <include file="citation-struts.xml" />
+     <include file="studentupdate-struts.xml" />
+     <include file="admin-addstudent-struts.xml" />
+     <include file="addgradeteacher-struts.xml" />
+     <include file="addteacher-struts.xml" />
+     <include file="addcollege-struts.xml" />
+     <include file="profession-struts.xml" />
+    
+    
+    <package name="StudentAction"  extends="struts-default" >
+    
+    
+    
+    	<!--分页显示学生信息admin action -->
+    	<action name="StudentPageAdmin" class="org.heyimtaeyang.action.StudentAction" method="StudentPageAdmin">
+    		<result name="success">/AdminPage/admin_Message_ListStudent.jsp</result>
+    	</action>
+    	
+    	<!--显示模糊学生信息admin action -->
+    	<action name="LikeStudentPageAdmin" class="org.heyimtaeyang.action.StudentAction" method="LikeStudentPageAdmin">
+    		<result name="success">/AdminPage/admin_Message_LikeListStudent.jsp</result>
+    	</action>
+    	
+    	<!--显示模糊学生信息GradeTeacher action -->
+    	<action name="LikeStudentPageGradeTeacher" class="org.heyimtaeyang.action.StudentAction" method="LikeStudentPageGradeTeacher">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_LikeListStudent.jsp</result>
+    	</action>
+    	
+    	 <!--分页显示学生信息GradeTeacher action -->
+    	<action name="StudentPageGradeTeacher" class="org.heyimtaeyang.action.StudentAction" method="StudentPageGradeTeacher">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_ListStudent.jsp</result>
+    	</action>
+    	
+    	 <!-- 按id显示学生信息admin -->
+    	<action name="findStudentById" class="org.heyimtaeyang.action.StudentAction" method="findStudentById">
+    		<result name="success">/AdminPage/admin_Message_ShowStudent.jsp</result>
+    	</action>
+    	
+    	 <!-- 无操作跳转adminaction -->
+    	<action name="class_ShowStudent" class="org.heyimtaeyang.action.StudentAction" method="class_ShowStudent">
+    		<result name="success">/AdminPage/admin_Message_ShowStudent.jsp</result>
+    	</action>
+    	
+    	 <!-- 按id显示学生信息GradeTeacher -->
+    	<action name="findStudentGradeTeacherById" class="org.heyimtaeyang.action.StudentAction" method="findStudentGradeTeacherById">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_ShowStudent.jsp</result>
+    	</action>
+    	
+    	<!-- 无操作跳转GradeTeacher -->
+    	<action name="class_ShowStudentGreadTeacher" class="org.heyimtaeyang.action.StudentAction" method="class_ShowStudentGreadTeacher">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_ShowStudent.jsp</result>
+    	</action>
+    	
+    	 <!--分页显示学生信息Teacher action -->
+    	<action name="StudentPageTeacher" class="org.heyimtaeyang.action.StudentAction" method="StudentPageTeacher">
+    		<result name="success">/TeacherPage/Teacher_Message_ListStudent.jsp</result>
+    	</action>
+    			
+    	 <!-- 按id显示学生信息Teacher -->
+    	<action name="findStudentTeacherById" class="org.heyimtaeyang.action.StudentAction" method="findStudentTeacherById">
+    		<result name="success">/TeacherPage/Teacher_Message_ShowStudent.jsp</result>
+    	</action>	
+    	
+    	<!-- 无操作跳转Student -->
+    	<action name="class_ShowStudentMessage" class="org.heyimtaeyang.action.StudentAction" method="class_ShowStudentMessage">
+    		<result name="success">/StudentPage/Student_Message_index.jsp</result>
+    	</action> 	
+    	
+    	<!--显示模糊学生信息GradeTeacher action -->
+    	<action name="LikeStudentPageTeacher" class="org.heyimtaeyang.action.StudentAction" method="LikeStudentPageTeacher">
+    		<result name="success">/TeacherPage/Teacher_Message_LikeListStudent.jsp</result>
+    	</action>
+    	
+    	<!--无操作跳转到修改学生资料页面Sutdent action -->
+    	<action name="UpdateStudent" class="org.heyimtaeyang.action.StudentAction" method="UpdateStudent">
+    		<result name="success">/StudentPage/Student_Message_updateStudent.jsp</result>
+    	</action>
+    	
+    	<!--跳转到添加学生信息页面Admin action -->
+    	<action name="addStudenrAdmin" class="org.heyimtaeyang.action.StudentAction" method="addStudenrAdmin">
+    		<result name="success">/AdminPage/admin_Message_addStudent.jsp</result>
+    	</action>
+    			
+    	<!--删除学生Admin action -->
+    	<action name="deleteStudentAdmin" class="org.heyimtaeyang.action.StudentAction" method="deleteStudentAdmin">
+    		<result name="success" type="chain">StudentPageAdmin</result>
+    	</action>
+    	
+    	<!--跳转到修改学生资料页面Admin action -->
+    	<action name="UpdateSutdentAdminIndex" class="org.heyimtaeyang.action.StudentAction" method="UpdateSutdentAdminIndex">
+    		<result name="success">/AdminPage/admin_Message_UpdateStudent.jsp</result>
+    	</action>
+    	
+    	
+    	
+    	<!--更新学生的政治面貌审批Admin action -->
+    	<action name="updateSutdentPoliticall" class="org.heyimtaeyang.action.StudentAction" method="updateSutdentPoliticall">
+    		<result name="success" type="chain">findStudentById</result>
+    		<result name="eooro">/404.html</result>
+    	</action>	
+    	
+    	<!--更新学生的政治面貌审批GradeTeacher action -->
+    	<action name="updateSutdentPoliticallGradeTeacher" class="org.heyimtaeyang.action.StudentAction" method="updateSutdentPoliticallGradeTeacher">
+    		<result name="success" type="chain">findStudentGradeTeacherById</result>
+    		<result name="eooro">/404.html</result>
+    	</action>	
+    	
+    	
+    	<!--更新学生的政治面貌审批Teacher action -->
+    	<action name="updateSutdentPoliticallTeacher" class="org.heyimtaeyang.action.StudentAction" method="updateSutdentPoliticallTeacher">
+    		<result name="success" type="chain">findStudentTeacherById</result>
+    		<result name="eooro">/404.html</result>
+    	</action>	
+    	
+    	<!--更新学生资料Admin action -->
+    	<action name="updateStudentAdmin" class="org.heyimtaeyang.action.StudentAction" method="updateStudentAdmin">
+    		<result name="success" type="chain">findStudentById</result>
+    	</action>
+    	
+    	<!--按年级查询学生Admin action -->
+    	<action name="StudentPageGrade" class="org.heyimtaeyang.action.StudentAction" method="StudentPageGrade">
+    		<result name="success">/AdminPage/admin_Message_ListStudentByGrade.jsp</result>
+    	</action>
+    	
+    	<!--按班级查询学生Admin action -->
+    	<action name="StudentPageClassmessId" class="org.heyimtaeyang.action.StudentAction" method="StudentPageClassmessId">
+    		<result name="success">/AdminPage/admin_Message_ListStudentByClassmess.jsp</result>
+    	</action>					
+    	
+    </package>   
+</struts>    

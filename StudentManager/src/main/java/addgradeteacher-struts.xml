@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+
+	
+	<include file="gradeteacher-struts.xml" /> 
+    <package name="AddGradeTeacherAction" extends="struts-default">
+    
+    	<!-- 添加年级辅导员信息admin -->
+    	<action name="addGradeTeacherAdmin" class="org.heyimtaeyang.action.AddGradeTeacherAction" method="addGradeTeacherAdmin">
+    		<result name="success" type="chain">GradeteacherPageAdmin</result>  
+    	</action>
+    	
+    	<!-- 跳转到修改年级辅导员页面admin -->
+    	<action name="updateGradeTeacherIndex" class="org.heyimtaeyang.action.AddGradeTeacherAction" method="updateGradeTeacherIndex">
+    		<result name="success">/AdminPage/admin_Message_UpdateGradeTeacher.jsp</result>  
+    	</action>
+    	
+    	<!-- 添加年级辅导员页面admin -->
+    	<action name="updateGradeTeacherAdmin" class="org.heyimtaeyang.action.AddGradeTeacherAction" method="updateGradeTeacherAdmin">
+    		<result name="success" type="chain">finGradeteacherById</result>  
+    	</action>
+    	
+    	<!-- 修改年级辅导员GradeTeacher -->
+    	<action name="updateActionGradeTeacher" class="org.heyimtaeyang.action.AddGradeTeacherAction" method="updateActionGradeTeacher">
+    		<result name="success" type="chain">ShowGradeTeacher</result>  
+    	</action>
+    </package>
+    
+</struts>    

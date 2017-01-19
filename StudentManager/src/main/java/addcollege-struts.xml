@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+
+	
+	
+    <package name="AddCollegeAction" extends="struts-default">
+    
+    	<!-- 添加学院信息admin -->
+    	<action name="addCollege" class="org.heyimtaeyang.action.AddCollegeAction" method="addCollege">
+    		<result name="success" type="chain">CollegePageBeanAdmin</result>  
+    	</action>
+    	
+    	<!-- 跳转到添加学院页面admin -->
+    	<action name="addCollegeIndex" class="org.heyimtaeyang.action.AddCollegeAction" method="addCollegeIndex">
+    		<result name="success">/AdminPage/addCollege_Message_addCollege.jsp</result>  
+    	</action>
+    	
+    	<!-- 分页显示全部学院页面admin -->
+    	<action name="CollegePageBeanAdmin" class="org.heyimtaeyang.action.AddCollegeAction" method="CollegePageBeanAdmin">
+    		<result name="success">/AdminPage/addCollege_Message_ListCollege.jsp</result>  
+    	</action>
+    	
+    	<!-- 按Id删除学院信息页面admin -->
+    	<action name="deleteCollege" class="org.heyimtaeyang.action.AddCollegeAction" method="deleteCollege">
+    		<result name="success" type="chain">CollegePageBeanAdmin</result>  
+    	</action>
+    	
+    </package>
+    
+</struts>    

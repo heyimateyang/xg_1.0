@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+
+	<!-- 外部配置文件 -->
+     <include file="admin-struts.xml" />
+     <include file="student-struts.xml" />
+     <include file="classmessage-struts.xml" />
+     <include file="achievement-struts.xml" />
+     <include file="teacher-struts.xml" />
+	
+    <package name="GradeteacherAction" extends="struts-default">
+    
+    	<!-- 按id显示年级辅导员admin -->
+    	<action name="finGradeteacherById" class="org.heyimtaeyang.action.GradeteacherAction" method="finGradeteacherById">
+    		<result name="success">/AdminPage/admin_Message_ShowGradeTeacher.jsp</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	<!-- 按id删除年级辅导员admin -->
+    	<action name="deleteGradeById" class="org.heyimtaeyang.action.GradeteacherAction" method="deleteGradeById">
+    		<result name="success" type="chain">GradeteacherPageAdmin</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	<!-- 分页显示年级辅导员admin -->
+    	<action name="GradeteacherPageAdmin" class="org.heyimtaeyang.action.GradeteacherAction" method="GradeteacherPageAdmin">
+    		<result name="success">/AdminPage/admin_Message_ListGradeTeacher.jsp</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	<!-- 按id显示年级辅导员gradeTeacher -->
+    	<action name="ShowGradeTeacher" class="org.heyimtaeyang.action.GradeteacherAction" method="ShowGradeTeacher">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_index.jsp</result>
+    	</action>
+    	
+    	<!-- 模糊查询分页显示年级辅导员admin -->
+    	<action name="LikeGradeteacherPageAdmin" class="org.heyimtaeyang.action.GradeteacherAction" method="LikeGradeteacherPageAdmin">
+    		<result name="success">/AdminPage/admin_Message_LikeListGradeTeacher.jsp</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	<!-- 跳转到添加年级辅导员页面admin -->
+    	<action name="addGradeTeacher" class="org.heyimtaeyang.action.GradeteacherAction" method="addGradeTeacher">
+    		<result name="success">/AdminPage/admin_Message_addGradeTeacher.jsp</result> 
+    	</action>
+    	
+    	<!-- 无操作跳转到更新年级辅导员页面GradeTeacher -->
+    	<action name="updateGradeTeacher" class="org.heyimtaeyang.action.GradeteacherAction" method="updateGradeTeacher">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_updateGradeTeacher.jsp</result> 
+    	</action>
+    	
+    </package>
+    
+</struts>    

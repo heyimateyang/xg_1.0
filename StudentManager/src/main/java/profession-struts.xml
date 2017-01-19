@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+
+
+	
+    <package name="ProfessionAction" extends="struts-default">
+    	
+    	<!-- 专业页面跳转到显示班级页面admin -->
+    	<action name="ProfessionIdByClassmessage" class="org.heyimtaeyang.action.ProfessionAction" method="ProfessionIdByClassmessage">
+    		<result name="success">/AdminPage/admin_Message_Professiond_ShowCLass.jsp</result> 
+    	</action>
+    	
+    	<!-- 跳转到添加专业页面admin -->
+    	<action name="addProfessionIndex" class="org.heyimtaeyang.action.ProfessionAction" method="addProfessionIndex">
+    		<result name="success">/AdminPage/addProfession_Message_addProfession.jsp</result> 
+    	</action>
+    	
+    	<!-- 添加专业admin -->
+    	<action name="addProfession" class="org.heyimtaeyang.action.ProfessionAction" method="addProfession">
+    		<result name="success" type="chain">ProfessionPageAdmin</result> 
+    	</action>
+    	
+    	<!-- 分页显示全部专业admin -->
+    	<action name="ProfessionPageAdmin" class="org.heyimtaeyang.action.ProfessionAction" method="ProfessionPageAdmin">
+    		<result name="success">/AdminPage/addProfession_Message_ListProfession.jsp</result> 
+    	</action>
+    	
+    	<!-- 按id删除专业admin -->
+    	<action name="deleteProfessionById" class="org.heyimtaeyang.action.ProfessionAction" method="deleteProfessionById">
+    		<result name="success" type="chain">ProfessionPageAdmin</result> 
+    	</action>
+    	
+    	<!-- 按专业Id admin -->
+    	<action name="deleteProfessionById" class="org.heyimtaeyang.action.ProfessionAction" method="deleteProfessionById">
+    		<result name="success" type="chain">ProfessionPageAdmin</result> 
+    	</action>
+    	
+    </package>
+    
+</struts>    

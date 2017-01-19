@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+    <include file="student-struts.xml" />
+    
+    <package name="AdminAddStudentAction"  extends="struts-default" >
+    
+    
+        <!-- 安全退出action -->
+    	<action name="addStudentAdmin" class="org.heyimtaeyang.action.AdminAddStudentAction" method="addStudentAdmin">
+    	 <result name="success">/AdminPage/admin_Message_addStudentCLass.jsp</result> 	
+    	</action>	
+    	
+    	<!-- 添加学生班级信息admin action -->
+    	<action name="addClassMessage" class="org.heyimtaeyang.action.AdminAddStudentAction" method="addClassMessage">
+    		<result name="success" type="chain">StudentPageAdmin</result>
+    		<result name="error">/404.html</result>
+    	</action> 	
+    	
+    	
+    	<!-- 添加学生班级信息GradeTeacher action -->
+    	<action name="addStudentGradeTeacher" class="org.heyimtaeyang.action.AdminAddStudentAction" method="addStudentGradeTeacher">
+    		<result name="success" >/GradeteacherPage/GradeTeacher_addStudentCLass.jsp</result>
+    		<result name="error">/404.html</result>
+    	</action> 
+    	
+    	<!-- 添加学生班级信息GradeTeacher action -->
+    	<action name="addClassMessageGradeTeacher" class="org.heyimtaeyang.action.AdminAddStudentAction" method="addClassMessageGradeTeacher">
+    		<result name="success" type="chain">StudentPageGradeTeacher</result>
+    		<result name="error">/404.html</result>
+    	</action> 
+    	
+    	
+    		
+    	<!-- 管理员启用学生帐号 action -->
+    	<action name="AdminStudentState" class="org.heyimtaeyang.action.AdminAddStudentAction" method="AdminStudentState">
+    	 <result name="success" type="chain">findStudentById</result> 	
+    	</action>	
+    	
+    	
+    	<!-- 无操作跳转到添加学生页面 GradeTeacher action -->
+    	<action name="AddSutdentGradeTeacherPage" class="org.heyimtaeyang.action.AdminAddStudentAction" method="AddSutdentGradeTeacherPage">
+    	 <result name="success">/GradeteacherPage/GradeTeacher_addStudent.jsp</result> 	
+    	</action>	
+    </package>   
+    
+</struts>    

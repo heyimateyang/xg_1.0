@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  
+  
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>
+			org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+		</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ExportWordServlet.servlet</servlet-name>
+    <servlet-class>org.heyimtaeyang.servlet.ExportWordServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckUsers</servlet-name>
+    <servlet-class>org.heyimtaeyang.servlet.CheckUsers</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckCollegeName</servlet-name>
+    <servlet-class>org.heyimtaeyang.servlet.CheckCollegeName</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckProfessionName</servlet-name>
+    <servlet-class>org.heyimtaeyang.servlet.CheckProfessionName</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckClassmessageName</servlet-name>
+    <servlet-class>org.heyimtaeyang.servlet.CheckClassmessageName</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckAchievementName</servlet-name>
+    <servlet-class>org.heyimtaeyang.servlet.CheckAchievementName</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckGradeTeacher</servlet-name>
+    <servlet-class>org.heyimtaeyang.servlet.CheckGradeTeacher</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DrawImage</servlet-name>
+    <servlet-class>org.heyimtaeyang.servlet.DrawImage</servlet-class>
+  </servlet>
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>ExportWordServlet.servlet</servlet-name>
+    <url-pattern>/servlet/ExportWordServlet.servlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>CheckUsers</servlet-name>
+    <url-pattern>/servlet/CheckUsers.servlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckCollegeName</servlet-name>
+    <url-pattern>/servlet/CheckCollegeName.servlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckProfessionName</servlet-name>
+    <url-pattern>/servlet/CheckProfessionName.servlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckClassmessageName</servlet-name>
+    <url-pattern>/servlet/CheckClassmessageName.servlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckAchievementName</servlet-name>
+    <url-pattern>/servlet/CheckAchievementName.servlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckGradeTeacher</servlet-name>
+    <url-pattern>/servlet/CheckGradeTeacher.servlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  <servlet-mapping>
+    <servlet-name>DrawImage</servlet-name>
+    <url-pattern>/servlet/DrawImage.servlet</url-pattern>
+  </servlet-mapping>
+  
+
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  
+</web-app>

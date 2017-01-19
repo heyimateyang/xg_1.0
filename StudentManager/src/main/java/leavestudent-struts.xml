@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+
+	<include file="student-struts.xml" />
+	
+    <package name="LeaveStudentAction" extends="struts-default">
+    
+    	<!-- 分页显示学生请假信息student -->
+    	<action name="LeaveStudentListStudent" class="org.heyimtaeyang.action.LeaveStudentAction" method="LeaveStudentListStudent">
+    		<result name="success">/StudentPage/Student_Message_ListLeaveStudent.jsp</result>
+    	</action>
+    	
+    	<!-- 学生申请请假信息student -->
+    	<action name="ApplyLeaveStudent" class="org.heyimtaeyang.action.LeaveStudentAction" method="ApplyLeaveStudent">
+    		<result name="success">/StudentPage/Student_Message_ApplyLeaveStudent.jsp</result>
+    	</action>
+    	
+    	<!-- 学生申请请假信息student -->
+    	<action name="AddApplyLeaveStudentandy" class="org.heyimtaeyang.action.LeaveStudentAction" method="AddApplyLeaveStudentandy">
+    		<result name="success" type="chain">LeaveStudentListStudent</result>
+    	</action>
+    	
+    	
+    	
+    	
+    	
+    	
+    	<!-- 学生删除请假信息student -->
+    	<action name="deleteLeaveStudent" class="org.heyimtaeyang.action.LeaveStudentAction" method="deleteLeaveStudent">
+    		<result name="success" type="chain">LeaveStudentListStudentAfter</result>
+    	</action>
+    	
+    	<!-- 学生请假信息student -->
+    	<action name="LeaveStudentListStudentAfter" class="org.heyimtaeyang.action.LeaveStudentAction" method="LeaveStudentListStudentAfter">
+    		<result name="success">/StudentPage/Student_Message_ListLeaveStudent.jsp</result>
+    	</action>
+    	
+    	<!-- 显示学生请假条student -->
+    	<action name="showLeaveStudent" class="org.heyimtaeyang.action.LeaveStudentAction" method="showLeaveStudent">
+    		<result name="success">/StudentPage/Student_Message_ShowLeaveStudent.jsp</result>
+    		<result name="error">/404.html</result>
+    	</action>
+    	
+    	
+    	<!-- 显示学生请假条Admin -->
+    	<action name="LeaveStudentListAdmin" class="org.heyimtaeyang.action.LeaveStudentAction" method="LeaveStudentListAdmin">
+    		<result name="success">/AdminPage/admin_Message_ListLeaveStudent.jsp</result>
+    		<result name="error">/404.html</result>
+    	</action>
+    	
+    	<!-- 管理员删除请假信息student -->
+    	<action name="deleteLeaveAdmin" class="org.heyimtaeyang.action.LeaveStudentAction" method="deleteLeaveAdmin">
+    		<result name="success" type="chain">LeaveStudentListAdminAfter</result>
+    	</action>
+    	
+    	<!-- 显示学生请假条Admin -->
+    	<action name="LeaveStudentListAdminAfter" class="org.heyimtaeyang.action.LeaveStudentAction" method="LeaveStudentListAdminAfter">
+    		<result name="success">/AdminPage/admin_Message_ListLeaveStudent.jsp</result>
+    		<result name="error">/404.html</result>
+    	</action>
+    	
+    	<!-- 修改请假条状态Admin -->
+    	<action name="updateLeaveAdmin" class="org.heyimtaeyang.action.LeaveStudentAction" method="updateLeaveAdmin">
+    		<result name="success" type="chain">LeaveStudentListAdminAfter</result>
+    		<result name="error">/404.html</result>
+    	</action>
+    	
+    	<!-- 显示学生请假条Admin -->
+    	<action name="showLeaveAdmin" class="org.heyimtaeyang.action.LeaveStudentAction" method="showLeaveAdmin">
+    		<result name="success">/AdminPage/admin_Message_ShowLeaveStudent.jsp</result>
+    		<result name="error">/404.html</result>
+    	</action>
+
+    </package>
+    
+</struts>    

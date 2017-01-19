@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+    <!-- 外部配置文件 -->
+     <include file="admin-struts.xml" />
+     <include file="student-struts.xml" />
+     <include file="classmessage-struts.xml" />
+     <include file="achievement-struts.xml" />
+     <include file="gradeteacher-struts.xml" /> 
+    
+    <package name="TeacherAction"  extends="struts-default" >
+ 
+    	<!-- 分页显示班级辅导员admin -->
+    	<action name="TeacherPageAdmin" class="org.heyimtaeyang.action.TeacherAction" method="TeacherPageAdmin">
+    		<result name="success">/AdminPage/admin_Message_ListTeacher.jsp</result>
+    		<result name="error">/404.html</result>	
+    	</action>
+    	
+    	<!-- 模糊查询分页显示班级辅导员admin -->
+    	<action name="LikeTeacherPageAdmin" class="org.heyimtaeyang.action.TeacherAction" method="LikeTeacherPageAdmin">
+    		<result name="success">/AdminPage/admin_Message_LikeListTeacher.jsp</result>
+    		<result name="error">/404.html</result>	
+    	</action>
+    	
+    	<!-- 按id显示班级辅导员信息admin -->
+    	<action name="findTeacherByIds" class="org.heyimtaeyang.action.TeacherAction" method="findTeacherByIds">
+    		<result name="success">/AdminPage/admin_Message_ShowTeacher.jsp</result>
+    	</action>
+    	
+    	<!-- 分页显示班级辅导员GradeTeacher -->
+    	<action name="GradeTeacherTeacherPage" class="org.heyimtaeyang.action.TeacherAction" method="GradeTeacherTeacherPage">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_ListTeacher.jsp</result>
+    		<result name="error">/404.html</result>	
+    	</action>	
+    	
+    	<!-- 按id显示班级辅导员信息GradeTeacher -->
+    	<action name="findTeacherGradeTeacherById" class="org.heyimtaeyang.action.TeacherAction" method="findTeacherGradeTeacherById">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_ShowTeacher.jsp</result>
+    		<result name="error">/404.html</result>	
+    	</action>
+    	
+    	<!-- 按id显示班级辅导员TeacherIndex -->
+    	<action name="TeacherByid" class="org.heyimtaeyang.action.TeacherAction" method="TeacherByid">
+    		<result name="success">/TeacherPage/Teacher_Message_index.jsp</result>
+    		<result name="error">/404.html</result>	
+    	</action>
+    	
+    	<!-- 按id删除班级辅导员admin -->
+    	<action name="deleteTeacherById" class="org.heyimtaeyang.action.TeacherAction" method="deleteTeacherById">
+    		<result name="success" type="chain">TeacherPageAdmin</result>	
+    	</action>
+    		
+    </package>  
+</struts>    

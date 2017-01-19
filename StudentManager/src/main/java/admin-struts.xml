@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+    
+    <!-- 外部配置文件 -->
+     <include file="student-struts.xml" />
+     <include file="classmessage-struts.xml" />
+     <include file="achievement-struts.xml" />
+     <include file="gradeteacher-struts.xml" /> 
+     <include file="teacher-struts.xml" />
+    
+    <package name="AdminAction"  extends="struts-default" >
+    
+        <!-- 修改管理员信息action -->
+    	<action name="update_admin" class="org.heyimtaeyang.action.AdminAction" method="update_admin">
+    		<result name="success">/AdminPage/admin_Message_index.jsp</result>
+    		<result name="error">/404.html</result>	
+    	</action>
+    	
+    	<!-- 按id显示管理员信息action -->
+    	<action name="findAdminById" class="org.heyimtaeyang.action.AdminAction" method="findAdminById">
+    		<result name="success">/AdminPage/admin_Message_index.jsp</result>
+    		<result name="error">/404.html</result>	
+    	</action>
+    	
+    			
+    </package>   
+</struts>    

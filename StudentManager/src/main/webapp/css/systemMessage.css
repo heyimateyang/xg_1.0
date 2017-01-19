@@ -1,0 +1,6 @@
+#msg_win{border:1px solid #A67901;background:#EAEAEA;width:300px;position:absolute;right:2;margin:0px;display:none;overflow:hidden;z-index:99;}
+#msg_win .icos{position:absolute;top:2px;*top:0px;right:2px;z-index:9;}
+.icos a{float:left;color:#833B02;margin:1px;text-align:center;text-decoration:none;font-family:webdings;}
+.icos a:hover{color:#fff;}
+#msg_title{background:#FECD00;border-bottom:1px solid #A67901;border-top:1px solid #FFF;border-left:1px solid #FFF;color:#000;height:25px;line-height:25px;text-indent:5px;}
+#msg_content{margin:2px;width:300px;height:200px;overflow:hidden;}

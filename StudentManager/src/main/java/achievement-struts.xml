@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+
+	<include file="student-struts.xml" />
+	
+    <package name="AchievementAction" extends="struts-default">
+    
+    	<!-- 显示学生成绩信息admin -->
+    	<action name="StudentAchievementPage" class="org.heyimtaeyang.action.AchievementAction" method="StudentAchievementPage">
+    		<result name="success">/AdminPage/admin_Message_ShowScore.jsp</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	<!-- 按排序查询显示学生成绩信息Gradeteacher -->
+    	<action name="StudentGradeTeacherAchievementPage" class="org.heyimtaeyang.action.AchievementAction" method="StudentGradeTeacherAchievementPage">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_ShowScoreORDERBY.jsp</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	<!-- 按id删除学生成绩信息admin -->
+    	<action name="deleteScoreByid" class="org.heyimtaeyang.action.AchievementAction" method="deleteScoreByid">
+    		<result name="success" type="chain">StudentAchievementPage</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	
+    	<!-- 显示学生成绩信息GradeTeacher -->
+    	<action name="StudentAchievementPageGradeTeacher" class="org.heyimtaeyang.action.AchievementAction" method="StudentAchievementPageGradeTeacher">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_ShowScore.jsp</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	<!-- 显示学生成绩信息Teacher -->
+    	<action name="StudentTeacherAchievementPage" class="org.heyimtaeyang.action.AchievementAction" method="StudentTeacherAchievementPage">
+    		<result name="success">/TeacherPage/Teacher_Message_ShowScore.jsp</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	<!-- 显示学生成绩信息Student -->
+    	<action name="StudentMessageAchievementPage" class="org.heyimtaeyang.action.AchievementAction" method="StudentMessageAchievementPage">
+    		<result name="success">/StudentPage/Student_Message_ShowScore.jsp</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	<!-- 模糊查询显示学生成绩信息GradeTeacher -->
+    	<action name="findLikeGradeTeacher" class="org.heyimtaeyang.action.AchievementAction" method="findLikeGradeTeacher">
+    		<result name="success">/GradeteacherPage/Gradeteacher_Message_LikeShowScoreORDERBY.jsp</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    	<!-- 显示班级辅导员所在班级学生成绩信息Teacher -->
+    	<action name="findStudentScroeTeacher" class="org.heyimtaeyang.action.AchievementAction" method="findStudentScroeTeacher">
+    		<result name="success">/TeacherPage/Teacher_Message_ShowAllScore.jsp</result> 
+    	</action>
+    	
+    	<!-- 按id添加学生成绩信息admin -->
+    	<action name="AddScoreAdmin" class="org.heyimtaeyang.action.AchievementAction" method="AddScoreAdmin">
+    		<result name="success" type="chain">StudentAchievementPage</result>
+    		<result name="error">/404.html</result>   
+    	</action>
+    	
+    </package>
+    
+</struts>    

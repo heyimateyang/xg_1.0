@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+    <!-- 外部配置文件 -->
+     <include file="admin-struts.xml" />
+     <include file="classmessage-struts.xml" />
+     <include file="achievement-struts.xml" />
+     <include file="gradeteacher-struts.xml" /> 
+     <include file="teacher-struts.xml" />
+    
+    
+   <package name="struts2" extends="struts-default">  
+   		
+   		<!-- 上传奖状图片Student -->
+        <action name="upload" class="org.heyimtaeyang.action.CitationAction" method="upload">  
+            <result name="success" type="chain">ShowListCitation</result>  
+            <result name="error">/StudentPage/404.html</result> 
+        </action> 
+        
+        <!-- 无操作跳转到上传奖状图片Student -->
+        <action name="addCitation" class="org.heyimtaeyang.action.CitationAction" method="addCitation">  
+            <result name="success">/StudentPage/Student_Message_addCitation.jsp</result>  
+        </action> 
+        
+        <!-- 分也显示学生获奖信息Student -->
+        <action name="ShowListCitation" class="org.heyimtaeyang.action.CitationAction" method="ShowListCitation">  
+            <result name="success">/StudentPage/Student_Message_ListCitation.jsp</result>  
+        </action> 
+         
+         <!-- 按id显示学生获奖信息Student -->
+        <action name="ShowCitation" class="org.heyimtaeyang.action.CitationAction" method="ShowCitation">  
+            <result name="success">/StudentPage/Student_Message_ShowCitation.jsp</result>  
+        </action> 
+         
+         <!-- 删除获奖Student -->
+        <action name="deleteStudentCitation" class="org.heyimtaeyang.action.CitationAction" method="deleteStudentCitation">  
+            <result name="success" type="chain">ShowListCitationAfter</result>  
+            <result name="error">/StudentPage/404.html</result> 
+        </action>
+        
+        <!-- 按学生Id分也显示学生获奖信息Admin -->
+        <action name="ShowListCitationAdmin" class="org.heyimtaeyang.action.CitationAction" method="ShowListCitationAdmin">  
+            <result name="success">/AdminPage/admin_Message_ListCitation.jsp</result>  
+        </action> 
+        
+         <!-- 按id显示学生获奖信息admin -->
+        <action name="ShowCitationAdmin" class="org.heyimtaeyang.action.CitationAction" method="ShowCitationAdmin">  
+            <result name="success">/AdminPage/admin_Message_ShowCitation.jsp</result>  
+        </action> 
+        
+        <!-- 按id显示学生获奖信息admin -->
+        <action name="UpdateCitationAdmin" class="org.heyimtaeyang.action.CitationAction" method="UpdateCitationAdmin">  
+            <result name="success" type="chain">ShowListCitationAdmin</result>  
+        </action> 
+        
+        <!--分页显示学生获奖信息GradeTeacher -->
+        <action name="ShowListCitationGradeTeacher" class="org.heyimtaeyang.action.CitationAction" method="ShowListCitationGradeTeacher">  
+            <result name="success">/GradeteacherPage/Gradeteacher_Message_ListCitation.jsp</result>  
+        </action> 
+        
+        <!--分页显示学生获奖信息Teacher -->
+        <action name="ShowListCitationTeacher" class="org.heyimtaeyang.action.CitationAction" method="ShowListCitationTeacher">  
+            <result name="success">/TeacherPage/Teacher_Message_ListCitation.jsp</result>  
+        </action> 
+        
+        <!--根据学生id显示学生获奖信息Teacher -->
+        <action name="SwhoCitationTeacher" class="org.heyimtaeyang.action.CitationAction" method="SwhoCitationTeacher">  
+            <result name="success">/TeacherPage/Teacher_Message_ShowCitation.jsp</result>  
+        </action> 
+        
+         <!--根据学生id显示学生获奖信息GradeTeacher -->
+        <action name="SwhoCitationGradeTeacher" class="org.heyimtaeyang.action.CitationAction" method="SwhoCitationGradeTeacher">  
+            <result name="success">/GradeteacherPage/Gradeteacher_Message_ShowStudentCitation.jsp</result>  
+        </action> 
+        
+         <!--审批学生的奖状状态GradeTeacher -->
+        <action name="UpdateCitationGradeTeacher" class="org.heyimtaeyang.action.CitationAction" method="UpdateCitationGradeTeacher">  
+            <result name="success" type="chain">SwhoCitationGradeTeacher</result>  
+        </action> 
+        
+         <!--审批学生的奖状状态Teacher -->
+        <action name="UpdateCitationTeacher" class="org.heyimtaeyang.action.CitationAction" method="UpdateCitationTeacher">  
+            <result name="success" type="chain">ShowListCitationTeacher</result>  
+        </action> 
+        
+         <!--查看奖状等级admin -->
+        <action name="Find_Citationlevel" class="org.heyimtaeyang.action.CitationAction" method="Find_Citationlevel">  
+            <result name="success">/AdminPage/admin_Message_ListCitationlevel.jsp</result>  
+        </action> 
+        
+        
+         <!-- -->
+        <action name="ShowListCitationAfter" class="org.heyimtaeyang.action.CitationAction" method="ShowListCitationAfter">  
+            <result name="success">/StudentPage/Student_Message_ShowCitation.jsp</result>  
+        </action>
+        
+   </package>   
+    
+</struts>    

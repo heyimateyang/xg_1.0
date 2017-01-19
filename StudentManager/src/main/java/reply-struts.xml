@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+    
+    
+    <!-- 外部配置文件 -->
+     <include file="student-struts.xml" />
+     <include file="classmessage-struts.xml" />
+     <include file="achievement-struts.xml" />
+     <include file="gradeteacher-struts.xml" /> 
+     <include file="teacher-struts.xml" />
+    
+    <package name="ReplyAction"  extends="struts-default" >
+    
+        <!-- 添加一条回复action -->
+    	<action name="AddReplyMessage" class="org.heyimtaeyang.action.ReplyAction" method="AddReplyMessage">
+    		<result name="success" type="chain">OkReply</result>
+    		<result name="error">/404.html</result>	
+    	</action>
+    	
+    	 <!-- 显示已处理的信息GradeTeacher action -->
+    	<action name="OkReply" class="org.heyimtaeyang.action.ReplyAction" method="OkReply">
+    		<result name="success">/GradeteacherPage/GradeTeacher_OKReply_ShowAdminMessage.jsp</result>
+    		<result name="error">/404.html</result>	
+    	</action>
+    	
+    	 <!-- 显示已处理的信息admin action -->
+    	<action name="OkReplyAdmin" class="org.heyimtaeyang.action.ReplyAction" method="OkReplyAdmin">
+    		<result name="success">/AdminPage/admin_Messagea_OKReply_ShowAdminMessage.jsp</result>
+    		<result name="error">/404.html</result>	
+    	</action>
+    	
+    	<!-- 显示已处理的信息学生页面action -->
+    	<action name="StudentOkReply" class="org.heyimtaeyang.action.ReplyAction" method="StudentOkReply">
+    		<result name="success">/StudentPage/Student_Message_ShowAdminMessage_studentState.jsp</result>
+    		<result name="error">/StudentPage/404.html</result>	
+    	</action>
+    	
+    			
+    </package>   
+</struts>    

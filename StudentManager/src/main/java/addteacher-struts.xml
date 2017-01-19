@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>  
+    <constant name="struts.ui.theme" value="simple"/> 
+
+	<include file="teacher-struts.xml" />
+	
+    <package name="AddTeacherAction" extends="struts-default">
+    
+    	<!-- 跳转到页面添加班级辅导员信息admin -->
+    	<action name="addTeacherList" class="org.heyimtaeyang.action.AddTeacherAction" method="addTeacherList">
+    		<result name="success">/AdminPage/admin_Message_addTeacher.jsp</result>  
+    	</action>
+    	
+    	<!-- 添加班级辅导员信息admin -->
+    	<action name="addTeacherAdmin" class="org.heyimtaeyang.action.AddTeacherAction" method="addTeacherAdmin">
+    		<result name="success" type="chain">addTeacherClassmessage</result>  
+    	</action>
+    	
+    	<!-- admin -->
+    	<action name="addTeacherClassmessage" class="org.heyimtaeyang.action.AddTeacherAction" method="addTeacherClassmessage">
+    		<result name="success">/AdminPage/admin_Message_addTeacherCLass.jsp</result>  
+    	</action>
+    	
+    	<!-- admin -->
+    	<action name="addClassmessageTeacherAdmin" class="org.heyimtaeyang.action.AddTeacherAction" method="addClassmessageTeacherAdmin">
+    		<result name="success" type="chain">TeacherPageAdmin</result>  
+    		<result name="error">/404.html</result>	
+    	</action>
+    	
+    	<!-- 添加班级辅导员信息班级信息admin -->
+    	<action name="addTeacherAdminClass" class="org.heyimtaeyang.action.AddTeacherAction" method="addTeacherAdminClass">
+    		<result name="success" type="chain">TeacherPageAdmin</result>  
+    	</action>
+    	
+    	<!-- 跳转到修改班级辅导员页面admin -->
+    	<action name="updateTeacherAdminIndex" class="org.heyimtaeyang.action.AddTeacherAction" method="updateTeacherAdminIndex">
+    		<result name="success">/AdminPage/admin_Message_UpdateTeacher.jsp</result>  
+    	</action>
+    	
+    	<!-- 修改班级辅导员admin -->
+    	<action name="updateTeacherAdminMessage" class="org.heyimtaeyang.action.AddTeacherAction" method="updateTeacherAdminMessage">
+    		<result name="success" type="chain">findTeacherByIds</result>  
+    	</action>
+    	
+    	<!-- 跳转到修改班级辅导员页面Teacher -->
+    	<action name="updateTeacherIndex" class="org.heyimtaeyang.action.AddTeacherAction" method="updateTeacherIndex">
+    		<result name="success">/TeacherPage/Teacher_Message_updateTeacher.jsp</result>  
+    	</action>
+    	
+    	<!-- 修改班级辅导员Teacher -->
+    	<action name="updateTeacherMessage" class="org.heyimtaeyang.action.AddTeacherAction" method="updateTeacherMessage">
+    		<result name="success" type="chain">TeacherByid</result>  
+    	</action>
+    	
+    </package>
+    
+</struts>    
